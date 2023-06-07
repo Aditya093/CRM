@@ -1,0 +1,101 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<style>
+    .pagination {
+      margin-top: 10px;
+    }
+    
+    .pagination a {
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+      background-color: #f2f2f2;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+    
+    .pagination a:hover {
+      background-color: #ddd;
+    }
+    
+    .pagination .current-page {
+      font-weight: bold;
+      padding: 8px 16px;
+      background-color: #2e70c0;
+      color: white;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+    
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-table th {
+  background-color: #f2f2f2;
+}
+
+.product-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.product-category {
+  color: #888;
+}
+
+.product-price {
+  color: #2e70c0;
+}
+
+
+    </style>
+    
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Products</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+                {% for product in page_obj %}
+                    <tr>
+                        <td class="product-name">{{ product.name }}</td>
+                        <td class="product-category">{{ product.category }}</td>
+                        <td class="product-price">{{ product.price }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+            <span class="current-page">{{ page_obj.number }}</span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
