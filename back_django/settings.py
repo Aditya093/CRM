@@ -17,7 +17,7 @@ import mongoengine
 mongoengine.connect(db="CRM", host='localhost',port=27017 ,username="adi", password="adi")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_URL='http://127.0.0.1:8000/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-c&l*n54us2l6oe3ownj1t^9!#0e(_i#14h7)dj+5)k91i^4rn^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['047d-103-42-128-31.ngrok-free.app','127.0.0.1']
 
 
 # Application definition
