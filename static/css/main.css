@@ -1,9 +1,16 @@
 #logo{
-   height:4.5%;
-   width: 5%;
+   max-width: 65px;
+   display: block;
+   height: auto;
+}
+
+
+#space{
+    margin:25%;
 }
 body{
     background-color: #ebeff5;
+    
 }
 
 #total-orders{

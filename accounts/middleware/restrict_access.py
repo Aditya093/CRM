@@ -6,7 +6,7 @@ class AccessControlMiddleware:
         self.get_response = get_response
         self.not_allowed_paths = {
             'admin': [], 
-            'customer': ['admin','customer','home','products','create_order','update_order','delete_order'],  
+            'customer': ['admin','customer','home','products','create_order','update_order','delete_order',''],  
             
             'staff': ['register','admin','customer','home','products','create_order','update_order','delete_order' ],
              'Anonymous': ['admin','customer','home','products','create_order','update_order','delete_order','logout']
@@ -21,12 +21,12 @@ class AccessControlMiddleware:
         user_groups=list(request.user.groups.values_list('name',flat=True))
         if(user_groups==[]):
             user_groups.append('Anonymous') 
-         
+        
         for group in user_groups:
             if group in self.not_allowed_paths:
                 not_allowed_paths = self.not_allowed_paths[group]
                 path = request.path.strip('/')
-
+                print(path) 
                 if not_allowed_paths and path in not_allowed_paths:
                     # Redirect the user to the user page or display an unauthorized message
                     return redirect(reverse('user'))

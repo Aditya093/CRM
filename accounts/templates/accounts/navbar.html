@@ -1,21 +1,32 @@
 {% load static %}
 <style>
   .hello-msg{
-    font-size:18px;
-    color: #fff;
-    margin-right: 25px;
+    font-size:20px;
+    margin-left: 15px;
+  
+    font-weight: bold;
+    margin-top: 5px;
   }
   .logout{
     font-size:18px;
     color: #fff;
     margin-right: 15px;
   }
+
+  
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <img src="{% static 'images/logo.png' %}" id="logo">
+  <div class="container-fluid" style="display: flex;">
+    <div class="navbar-brand d-flex justify-content-left" style="width: 100vw;">
+        <img src="{% static 'images/logo.png' %}" id="logo" alt="CRM" class="justify-content-center">
+        <a class ="navbar-text hello-msg justify-content-center" href="{% url 'account' %}">
+          <span class="navbar-text hello-msg justify-content-center">
+            Hello, {{ request.user }} 
+          </span>
+       
+        </a>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler ms-auto"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
@@ -23,22 +34,30 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <i class="fas fa-bars"></i>
+        
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    </div>
+    <div></div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav hello-msg ml-auto">
           {% if request.user.is_staff %}
+          <li>
+            <a class="nav-link" aria-current="page" href="{% url 'insights' %}">Insights</a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Dashboard</a>
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'products' %}">Products</a>
           </li>
           {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
         </ul>
-      </div>
     </div>
-    <span  class ="hello-msg">Hello,{{request.user}} </span>
-    <span><a class ="logout" href="{% url 'logout' %}">Logout</a></span>
-  </nav>
+  </div>
+</nav>
+
   

@@ -1,0 +1,17 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<br>
+<h1>Insights of Data</h1>
+<br>
+<hr>
+{{bar_chart|safe}}
+<br>
+<hr>
+{{pie_chart|safe}}
+<br>
+<hr>
+{{line_chart|safe}}
+<br>
+<hr>
+{{scatter_chart|safe}}
+{% endblock content %}

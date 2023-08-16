@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save,pre_save
 from django.dispatch import receiver
 from .models import *
 
@@ -14,4 +14,6 @@ def customer_profile(sender,instance,created,**kwargs):
                    name=instance.username
                )
         print('Customer created!')
-post_save.connect(customer_profile,sender=User)        
+post_save.connect(customer_profile,sender=User)     
+
+ 

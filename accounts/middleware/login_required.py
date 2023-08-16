@@ -1,10 +1,14 @@
 from django.shortcuts import redirect 
 from django.urls import reverse
-from django.http import HttpResponse
+
 class LoginRequiredMiddleware:
     EXCLUDED_URLS = [
         reverse('login'),  # Replace with your login URL
         reverse('register'),  # Replace with your register URL
+        reverse('reset_password'),
+        reverse('forgot_password'),
+       
+   
     ]
     def __init__(self,get_response):
         self.get_response=get_response

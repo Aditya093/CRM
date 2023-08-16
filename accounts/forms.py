@@ -18,3 +18,10 @@ class CustomerForm(ModelForm):
         model=Customer
         fields='__all__'
         exclude=['user']               
+class NewPasswordForm(forms.Form):
+    
+    new_password1 = forms.CharField(label='New Password', widget=forms.PasswordInput)
+    new_password2 = forms.CharField(label='Confirm New Password', widget=forms.PasswordInput)
+
+
+
