@@ -54,7 +54,7 @@ fastjsonschema==2.16.3
 filelock==3.12.2
 Flask==2.2.4
 flatbuffers==23.5.9
-fonttools==4.42.0
+fonttools==4.37.4
 fqdn==1.5.1
 frozendict==2.3.8
 frozenlist==1.4.0
