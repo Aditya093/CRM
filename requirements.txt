@@ -10,6 +10,7 @@ mongoengine==0.27.0
 ngrok==0.7.0
 numpy==1.21.6
 oauthlib==3.2.2
+pandas
 pathlib
 parso==0.8.3
 plotly==5.6.0
