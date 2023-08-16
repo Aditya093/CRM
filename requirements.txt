@@ -115,7 +115,7 @@ libretranslatepy==2.1.1
 LunarCalendar==0.0.9
 lxml==4.9.2
 Markdown==3.4.3
-markdown-it-py==3.0.0
+markdown-it-py==2.2.0
 MarkupSafe==2.1.2
 matplotlib==3.7.2
 matplotlib-inline==0.1.6
